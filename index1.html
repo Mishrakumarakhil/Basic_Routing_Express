@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CountDown Timer</title>
+	<!-- Feb 01, 2020 00:00 AM -->
+</head>
+
+<body>
+	<script>
+		document.getElementsByTagName('body')[0].style.cssText = "margin:0px;padding:0px;";
+		
+		var mainDiv = document.createElement("div");
+		document.body.appendChild(mainDiv);
+		mainDiv.style.cssText = "overflow:hidden;background-color:#80808038;"
+		
+		var h1 = document.createElement("h1");
+		h1.innerHTML = "COUNTDOWN";
+		document.body.appendChild(h1);
+		mainDiv.appendChild(h1);
+		h1.style.cssText = "color:#060606bf;font-family: monospace;font-size: 55px;font-weight: bold;text-align: center;"
+		
+		var days = document.createElement("span");
+		document.body.appendChild(days);
+		mainDiv.appendChild(days);
+		days.style.cssText = "font-family: monospace;color:#060606bf;font-size:70px;font-weight:900;margin-left:450px;border-radius:3px;"
+		
+		var hours = document.createElement("span");
+		document.body.appendChild(hours);
+		mainDiv.appendChild(hours);
+		hours.style.cssText = "font-family: monospace;color:#060606bf;font-size:70px;font-weight:900;margin-left:36px;border-radius:3px;"
+		
+		var minutes = document.createElement("span");
+		document.body.appendChild(minutes);
+		mainDiv.appendChild(minutes);
+		minutes.style.cssText = "font-family: monospace;color:#060606bf;font-size:70px;font-weight:900;margin-left:36px;border-radius:3px;"
+		
+		var seconds = document.createElement("span");
+		document.body.appendChild(seconds);
+		mainDiv.appendChild(seconds);
+		seconds.style.cssText = "font-family: monospace;color:red;font-size:70px;font-weight:900;margin-left:36px;border-radius:3px;"
+		
+		
+		var eventTime = new Date("april 1, 2020 00:00:00").getTime();  // Set End Date&Time
+		setInterval(function() 
+		{
+		    var now = new Date().getTime(); //Today Date & Time
+		    var timeleft = eventTime - now; //   here we will get all the remaining time in milliseconds 
+			
+			//Logic
+			var second = Math.floor(timeleft / 1000);
+		    var minute = Math.floor(second / 60);
+		    var hour = Math.floor(minute / 60);
+		    var day = Math.floor(hour / 24);
+		    hour %= 24;
+		    minute %= 60;
+		    second %= 60;
+		    hour = (hour < 10) ? "0" + hour : hour;
+		    minute = (minute < 10) ? "0" + minute : minute;
+		    second = (second < 10) ? "0" + second : second;
+			
+			//Print Timer
+		    days.innerHTML = day+"  :";
+		    hours.innerHTML = hour+"  :";
+		    minutes.innerHTML = minute+"  :";
+		    seconds.innerHTML = second;
+		}, 500);
+	</script>
+</body>
+
+</html>

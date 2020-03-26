@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<title>Assignment</title>
+</head>
+<body>
+
+<input id="text1"type ="text">
+<input type="submit" onclick="fun();" value="O/P"> 
+<input type="submit" onclick="fun1();" value="clear">
+</body>
+
+<script>
+
+function fun1()
+{
+   document.getElementById("text1").value="";
+}
+
+function fun()
+{
+var x=document.getElementById("text1").value;
+
+x=x.replace(/[^a-zA-Z0-9]/g,' ');
+x = x.toLowerCase();
+x=x.split(' ');
+ for (var i = 0; i < x.length; i++)
+ {
+    x[i] = x[i].charAt(0).toUpperCase() + x[i].slice(1);
+	
+ }
+ x=x.join(' ');
+
+alert(x);
+}
+
+</script>
+
+<html>
+
+
+
